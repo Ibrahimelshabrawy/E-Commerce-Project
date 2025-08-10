@@ -1,0 +1,40 @@
+<div
+  id="carouselExampleDark"
+  class="carousel slide"
+  data-bs-ride="carousel"
+  data-bs-interval="2000"
+>
+  <div class="carousel-inner custom-carousel-inner">
+    @for (product of products.slice(0,5); track $index) {
+    <div class="carousel-item" [class.active]="$index === 0">
+      <!--     [class.active]="$index === 0"  ====> وظيفته انه يخلي اول صورة اكتيف تشتغل تلقائي اول ما البراوزر يشتغل   -->
+      <div class="slide-container">
+        <img [src]="product.image" alt="Product Image" class="carousel-img" />
+        <div class="slide-caption">
+          <h5>{{ product.title }}</h5>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleDark"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleDark"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

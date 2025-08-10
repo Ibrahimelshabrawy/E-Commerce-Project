@@ -1,0 +1,40 @@
+<div class="add-product-box">
+  <p>"Got a product idea? Add it yourself!"</p>
+  <button class="btn btn-add" (click)="addProduct()">Add Product</button>
+</div>
+
+<div class="card-grid">
+  @for (product of products; track $index) {
+  <div class="card animated-card">
+    <img [src]="product.image" class="card-img-top" />
+
+    <div class="card-body card-content">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-price"><b>Price:</b> ${{ product.price }}</p>
+
+      <p class="card-text">
+        {{
+          isExpanded[product.id]
+            ? product.description
+            : (product.description | slice: 0:100) + '...'
+        }}
+        <a class="see-more" (click)="toggleExpand(product.id)">
+          {{ isExpanded[product.id] ? 'See Less' : 'See More' }}
+        </a>
+      </p>
+
+      <div class="button-group">
+        <button class="btn btn-cart" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+        <button class="btn btn-update" (click)="updateProduct(product.id)">
+          Update
+        </button>
+        <button class="btn btn-delete" (click)="deleteProduct(product.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+</div>

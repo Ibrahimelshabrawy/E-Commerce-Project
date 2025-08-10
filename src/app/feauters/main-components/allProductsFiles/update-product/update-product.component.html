@@ -1,0 +1,52 @@
+<div class="container">
+  <h2 class="update-title">♻️Update Product</h2>
+
+  <form [formGroup]="updateForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Product Title</label>
+      <input type="text" class="form-control" formControlName="title" />
+      @if (updateForm.get('title')?.touched && updateForm.get('title')?.invalid)
+      {
+      <small
+        class="text-danger"
+        *ngIf="updateForm.get('title')?.errors?.['required']"
+      >
+        Title Is Required
+      </small>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Product Description</label>
+      <textarea class="form-control" formControlName="description"></textarea>
+      @if (updateForm.get('description')?.touched &&
+      updateForm.get('description')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="updateForm.get('description')?.errors?.['required']"
+      >
+        Product Description Is Required
+      </small>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" formControlName="price" />
+      @if (updateForm.get('price')?.touched && updateForm.get('price')?.invalid)
+      {
+      <small
+        class="text-danger"
+        *ngIf="updateForm.get('price')?.errors?.['required']"
+      >
+        Price is Required
+      </small>
+
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+      Submit
+    </button>
+  </form>
+</div>

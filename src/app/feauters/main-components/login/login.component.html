@@ -1,0 +1,63 @@
+<div class="container">
+  <h3>Welcome Back To Your Commerce</h3>
+  <form [formGroup]="myForm">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="email"
+        placeholder="Enter Your Email , EX: Hello@gmail.com"
+      />
+      <div>
+        @if (myForm.get('email')?.touched && myForm.get('email')?.invalid) {
+        <small
+          class="text-danger"
+          *ngIf="myForm.get('email')?.errors?.['required']"
+          >Email Is Required</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="myForm.get('email')?.errors?.['email']"
+          >Must Be In Email Format</small
+        >
+        }
+      </div>
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        formControlName="password"
+        placeholder="Enter Your Password , EX: Aa11"
+      />
+      @if (myForm.get('password')?.touched && myForm.get('password')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="myForm.get('password')?.errors?.['required']"
+        >Password Is Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="myForm.get('password')?.errors?.['pattern']"
+        >Your Password Must have [Captial letter , Small letter , Number]</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="myForm.get('password')?.errors?.['minlength']"
+        >Your Password Must be More than 3 Letters</small
+      >
+      }
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+      Submit
+    </button>
+  </form>
+</div>

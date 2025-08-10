@@ -1,0 +1,155 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #0d1b2a;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #1b263b;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  height: 100%;
+  min-height: 450px;
+
+  animation: fadeIn 0.8s ease-in-out forwards, slideIn 0.8s ease-in-out forwards;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffd60a;
+}
+.card-price {
+  color: #28a745;
+  margin-bottom: 0.5rem;
+}
+.card-text {
+  flex-grow: 1;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #f1f1f1;
+}
+
+.see-more {
+  color: #00b4d8;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-delete {
+  background-color: #e63946;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c1121f;
+}
+
+.btn-update {
+  background-color: #62ace1;
+  color: black;
+}
+
+.btn-update:hover {
+  background-color: #247a92;
+}
+
+.btn-add {
+  background-color: #ffd60a;
+  color: black;
+}
+.btn-add:hover {
+  background-color: #fcbf49;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.add-product-box {
+  background-color: #1b263b;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out forwards, slideIn 0.8s ease-in-out forwards;
+}
+
+.add-product-box p {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.btn-cart {
+  background-color: #37ab71;
+  color: white;
+}
+
+.btn-cart:hover {
+  background-color: #397c51;
+}

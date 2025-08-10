@@ -1,0 +1,75 @@
+<div class="container">
+  <h3>🛍️ Add New Product</h3>
+
+  <form [formGroup]="addForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Product Title</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter The Product Title"
+        formControlName="title"
+      />
+      @if (addForm.get('title')?.touched && addForm.get('title')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="addForm.get('title')?.errors?.['required']"
+      >
+        Title Is Required
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="addForm.get('title')?.errors?.['minlength']"
+      >
+        Min Characters Is 3 Characters
+      </small>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Product Description</label>
+      <textarea
+        class="form-control"
+        placeholder="Enter the Product Description"
+        formControlName="description"
+      ></textarea>
+      @if (addForm.get('description')?.touched &&
+      addForm.get('description')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="addForm.get('description')?.errors?.['required']"
+      >
+        Product Description Is Required
+      </small>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter The Product Price"
+        formControlName="price"
+      />
+      @if (addForm.get('price')?.touched && addForm.get('price')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="addForm.get('price')?.errors?.['required']"
+      >
+        Price is Required
+      </small>
+      <small class="text-danger" *ngIf="addForm.get('price')?.errors?.['min']">
+        The Price Should Be At Least One Number, And More Than Zero
+      </small>
+      <small class="text-danger" *ngIf="addForm.get('price')?.errors?.['max']">
+        The Price Should Be At Most six Numbers, And Cannot Be More Than 500,000
+      </small>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+      Submit
+    </button>
+  </form>
+</div>

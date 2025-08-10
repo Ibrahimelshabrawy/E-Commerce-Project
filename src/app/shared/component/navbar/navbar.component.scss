@@ -1,0 +1,47 @@
+.custom-navbar {
+  background-color: #0d1b2a;
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav {
+  gap: 20px;
+}
+
+.custom-link {
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.custom-link::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  overflow: hidden;
+  color: #905c32;
+  white-space: nowrap;
+  transition: width 0.4s ease;
+}
+
+.custom-link:not(.active):hover::before {
+  width: 100%;
+}
+
+.custom-link:not(.active):hover {
+  color: transparent;
+}
+
+.custom-link.active {
+  color: #f6f0eb !important;
+}
+
+.custom-link[data-text]::before {
+  content: attr(data-text);
+}

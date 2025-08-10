@@ -1,0 +1,102 @@
+<div class="container">
+  <h2 class="contact-title">📞 Contact Us</h2>
+  <form [formGroup]="contactForm">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="email"
+        placeholder="Enter Your Email , EX: Aa11"
+      />
+      @if (contactForm.get('email')?.touched &&
+      contactForm.get('email')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('email')?.errors?.['required']"
+        >Email is required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('email')?.errors?.['email']"
+        >Must Be In Email Format</small
+      >
+      }
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        placeholder="Enter Your Full Name"
+      />
+      @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid)
+      {
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('name')?.errors?.['required']"
+        >Your Name Is Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('name')?.errors?.['minlength']"
+        >Your Name Must Be More Than Or Equal 3 Characters</small
+      >
+      }
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="phone"
+        placeholder="Enter Your Phone Number,You Can Start With Zero Or Not"
+      />
+      @if (contactForm.get('phone')?.touched &&
+      contactForm.get('phone')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('phone')?.errors?.['required']"
+        >Your Phone Is Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('phone')?.errors?.['maxlength']"
+        >Your Phone Number Cannot Be More Than 11 number</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('phone')?.errors?.['minlength']"
+        >Your Phone Number Cannot Be Less Than 10 number</small
+      >
+      }
+    </div>
+    <div class="mb-3">
+      <label for="Message" class="form-label">Your Message</label>
+      <textarea
+        class="form-control"
+        name="message"
+        formControlName="message"
+        placeholder="Enter Your Message Here , Thank You For contact Us"
+      ></textarea>
+      @if (contactForm.get('message')?.touched &&
+      contactForm.get('message')?.invalid) {
+      <small
+        class="text-danger"
+        *ngIf="contactForm.get('message')?.errors?.['required']"
+        >Message Is Required</small
+      >
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+      Submit
+    </button>
+  </form>
+</div>
